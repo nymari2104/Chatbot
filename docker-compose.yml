@@ -86,12 +86,13 @@ services:
     networks:
       - hotel-chatbot-net
 
-  # ── Localtunnel (Public Webhook URL Tunnel) ──
-  localtunnel:
-    image: node:20-alpine
+  # ── Cloudflare Tunnel (Public Webhook URL Tunnel) ──
+  cloudflare-tunnel:
+    image: cloudflare/cloudflared:latest
     container_name: hotel-chatbot-tunnel
     restart: unless-stopped
-    command: sh -c "npm install -g localtunnel && lt --host https://localtunnel.me --port 5678 --subdomain ${SUBDOMAIN:-ocean-breeze-resort-chatbot}"
+    # Generates a free trycloudflare.com tunnel pointing to n8n port 5678
+    command: tunnel --no-autoupdate --url http://n8n:5678
     depends_on:
       - n8n
     networks:
