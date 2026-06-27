@@ -112,8 +112,8 @@ hotel-chatbot-n8n    running
 - **Credentials**: Chọn Postgres credential đã tạo ở Bước 6.
 
 #### Node 3: Read Directory (Đọc thư mục)
-- **Path**: `/home/node/knowledge`
-- **Options**: Bật **`Detailed Output`** thành `True` (nếu cần). Node này sẽ tìm thấy các file như `faq.md`, `hotel-info.md`, v.v.
+- **Path**: `/home/node/knowledge/*` (hoặc `/home/node/knowledge/`, thêm dấu wildcard `*` để quét mọi file)
+- **Options**: Bật **`Detailed Output`** thành `True` (nếu có). Node này sẽ quét các file như `faq.md`, `hotel-info.md`...
 
 #### Node 4: Read Write File from Disk (Đọc file)
 - **Operation**: `Read File`

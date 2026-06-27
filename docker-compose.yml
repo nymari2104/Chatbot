@@ -56,6 +56,8 @@ services:
       # Environment Variable Access
       GOOGLE_AI_API_KEY: ${GOOGLE_AI_API_KEY}
       N8N_ENFORCE_SETTINGS_FILE_FOR_ENV_VARIABLES: "false"
+      # Whitelist local folder access
+      N8N_RESTRICT_FILE_ACCESS_TO: "/home/node/knowledge"
     volumes:
       - n8n_data:/home/node/.n8n
       - ./knowledge:/home/node/knowledge
